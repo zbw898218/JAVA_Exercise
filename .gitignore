@@ -1,0 +1,16 @@
+# Windows:忽略Windows自动生成的垃圾文件
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Python:忽略Python编译产生的.pyc、.pyo、dist等文件或目录
+*.py[cod]
+*.so
+*.egg
+*.egg-info
+dist
+build
+
+# My configurations:忽略自定义的某些文件
+db.ini
+deploy_key_rsa
