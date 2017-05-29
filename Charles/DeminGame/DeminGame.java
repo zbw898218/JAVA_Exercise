@@ -12,6 +12,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -20,10 +21,11 @@ public class DeminGame extends JFrame {
 	private JButton[] allButtons;//接受100个按钮作为雷存储
 	private JPanel panel,apanel,p1;//定义面板容器容纳按钮，定义主面板容纳扫雷按钮
 	private JTextField output;
+	private int[] arr;
 	public DeminGame(){
 		this.setTitle("Charle's DaminGame!");
 		this.setSize(400,500);
-		
+		arr=Rules.getRules().gameData();
 		begin=new JButton("开始");
 		stop=new JButton("结束");
 		quit=new JButton("退出");
@@ -32,7 +34,8 @@ public class DeminGame extends JFrame {
 		allButtons=new JButton[100];
 		output=new JTextField();
 		for(int i=0;i<100;i++){
-			allButtons[i]=new JButton();
+			
+			allButtons[i]=new JButton(i+" ");
 			allButtons[i].setSize(20, 20);
 			allButtons[i].setVisible(true);
 		}
@@ -101,16 +104,21 @@ public class DeminGame extends JFrame {
 		public void actionPerformed(ActionEvent e) {
 			JButton jb=(JButton)(e.getSource());//获得事件真正源
 			jb.setVisible(false);
+			
 			for(int i=0;i<100;i++){
 				if(jb.equals(allButtons[i])){
-					int a=(int)(Math.random()*10);
-					if(a>=7){
+					String str=jb.getText().trim();
+					System.out.println(str);
+					int inde=Integer.parseInt(str);
+					System.out.println(inde);
+					if(arr[inde]==-1){
 						output.setText("对不起，你踩中地雷了!Game Over!");
 						System.out.println("对不起，你踩中地雷了!Game Over!");
+						JOptionPane.showMessageDialog(DeminGame.this, "Game Over!", str, JOptionPane.INFORMATION_MESSAGE); 
+						System.exit(0);
 					}else{
-						output.setText("安全！");
+						output.setText("提示："+inde+"号按钮周围有雷个数为："+arr[inde]);
 					}
-					System.out.println(a);
 				}
 			}
 		}
@@ -119,5 +127,7 @@ public class DeminGame extends JFrame {
 		DeminGame dg=new DeminGame();
 		dg.init();
 	}
+
+
 
 }
