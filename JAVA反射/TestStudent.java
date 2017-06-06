@@ -5,7 +5,7 @@ import java.lang.reflect.Method;
 /**
  * Created by Charles on 2017/6/6.
  */
-public class TestStudent {
+public class TestStudent implements ILess<Student>{
     /**
      * 定义一个通用方法，通过类名，方法名，方法参数序列，反射调用指定类的指定方法
         本例，通过反射方法，创建一个student类实例，并调用setData方法将值赋给对应属性，并将创建的类实例返回
@@ -57,7 +57,7 @@ public class TestStudent {
         }
         return st;
     }
-    
+  
     public static void main(String[] args){
         Student[] stus=new Student[5];
         Student[] stus1=new Student[5];
@@ -85,6 +85,27 @@ public class TestStudent {
         for(Student st:stus1){
             System.out.println(st);
         }
+        System.out.println("-----------------------分割线------------------------");
+        /**
+         * 利用接口和泛型方法类实现比较
+         */
+        Algo<Student> al=new Algo();
+        ILess ts=new TestStudent();
+        Student max=al.getMax(stus,ts);
+        System.out.println(max);
+        Student min=al.getMin(ts,stus);
+        System.out.println(min);
         
+        System.out.println("-----------------------分割线------------------------");
+        int sum=0;
+        for(Student st:stus){
+            sum+=st.getsJAVA();
+        }
+        System.out.println("JAVA的均分为："+sum/stus.length);
+    }
+    
+    @Override
+    public boolean less(Student x, Student y) {
+        return x.getsJAVA()<y.getsJAVA();
     }
 }
