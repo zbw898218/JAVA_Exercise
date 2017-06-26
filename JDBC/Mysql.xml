@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="password">898218</entry>
+<entry key="url">jdbc:mysql://localhost:3306/exercise?serverTimezone=UTC&amp;characterEncoding=utf-8 </entry>
+<entry key="driver">com.mysql.jdbc.Driver</entry>
+<entry key="username">root</entry>
+</properties>
