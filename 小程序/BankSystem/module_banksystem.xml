@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_banksystem" default="compile.module.banksystem">
+  <dirname property="module.banksystem.basedir" file="${ant.file.module_banksystem}"/>
+  
+  <property name="module.jdk.home.banksystem" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.banksystem" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.banksystem" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.banksystem" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="banksystem.output.dir" value="${module.banksystem.basedir}/out/production/BankSystem"/>
+  <property name="banksystem.testoutput.dir" value="${module.banksystem.basedir}/out/test/BankSystem"/>
+  
+  <path id="banksystem.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="banksystem.module.production.classpath">
+    <path refid="${module.jdk.classpath.banksystem}"/>
+  </path>
+  
+  <path id="banksystem.runtime.production.module.classpath">
+    <pathelement location="${banksystem.output.dir}"/>
+  </path>
+  
+  <path id="banksystem.module.classpath">
+    <path refid="${module.jdk.classpath.banksystem}"/>
+    <pathelement location="${banksystem.output.dir}"/>
+  </path>
+  
+  <path id="banksystem.runtime.module.classpath">
+    <pathelement location="${banksystem.testoutput.dir}"/>
+    <pathelement location="${banksystem.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.banksystem">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.banksystem">
+    <patternset refid="excluded.from.module.banksystem"/>
+  </patternset>
+  
+  <path id="banksystem.module.sourcepath">
+    <dirset dir="${module.banksystem.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.banksystem" depends="compile.module.banksystem.production,compile.module.banksystem.tests" description="Compile module BankSystem"/>
+  
+  <target name="compile.module.banksystem.production" depends="register.custom.compilers" description="Compile module BankSystem; production classes">
+    <mkdir dir="${banksystem.output.dir}"/>
+    <javac2 destdir="${banksystem.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.banksystem}/javac">
+      <compilerarg line="${compiler.args.banksystem}"/>
+      <bootclasspath refid="banksystem.module.bootclasspath"/>
+      <classpath refid="banksystem.module.production.classpath"/>
+      <src refid="banksystem.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.banksystem"/>
+    </javac2>
+    
+    <copy todir="${banksystem.output.dir}">
+      <fileset dir="${module.banksystem.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.banksystem.tests" depends="register.custom.compilers,compile.module.banksystem.production" description="compile module BankSystem; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.banksystem" description="cleanup module">
+    <delete dir="${banksystem.output.dir}"/>
+    <delete dir="${banksystem.testoutput.dir}"/>
+  </target>
+</project>

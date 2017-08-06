@@ -1,0 +1,14 @@
+.menu{
+    width: 150px;
+    height: 750px;
+    margin-top: 20px;
+    line-height: 25px;
+    float: left;
+
+}
+#add_topic{
+    background-repeat: no-repeat;
+    background-image: url(../images/opt_name.gif);
+    text-align: left;
+
+}
