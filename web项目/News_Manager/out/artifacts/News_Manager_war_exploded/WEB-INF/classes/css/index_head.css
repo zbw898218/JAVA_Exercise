@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.head{
+    width: 900px;
+    height: 200px;
+
+}
+.header_top{
+    border: solid 1px ;
+    width: 931px;
+    height: 30px;
+    line-height: 30px;
+    background-color: azure;
+}
+.head_mid{
+    width: 900px;
+    height: 100px;
+}
+.head_foot{
+    height: 30px;
+    line-height: 30px;
+    width: 931px;
+    border:  solid 1px ;
+    background-color: lightskyblue
+}

@@ -1,0 +1,92 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.body{
+	position: absolute;
+	left: 20%;
+	top: 5px;
+}
+.head_top{
+	text-align: left;
+	line-height: 30px;
+	border-bottom: solid salmon 1px;
+}
+.head_foot{
+	text-align: left;
+	line-height: 30px;
+	background-color: lightblue;
+}
+
+.left_body{
+	width: 180px;
+	position: absolute;
+	left: 0;
+	top: 160px;
+}
+
+.left_body ul{
+	list-style: none;
+}
+.left_body ul li a{
+	text-decoration: none;
+	font-weight: 800;
+	text-align: center;
+	line-height: 50px;	
+}
+.main_body{
+	
+	width: 850px;
+	height: 600px;
+
+	position: absolute;
+	left: 200px;
+	top: 200px;
+}
+.main_body_tab1{
+	
+	width: 400px;
+	height: 300px;
+	border: solid red 1px;
+
+
+	position: absolute;
+	left:0;
+	top: 0;
+}
+.main_body_tab1 table #add_topic{
+	text-align: left;
+	height: 24px;
+	border-bottom: solid skyblue 1px;
+	background-image: url(../images/opt_name.gif);
+	background-repeat: no-repeat;
+}
+
+.main_body_tab2{
+
+	width: 400px;
+	height: 300px;
+	text-align: center;
+	border: solid red 1px;
+	position: absolute;
+	left:420px;
+	top: 0;
+}
+.main_body_tab3{
+	background-color: red;
+	width: 400px;
+	height: 300px;
+	border: solid red 1px;
+	position: absolute;
+	left:0;
+	top: 320px;
+}
+.main_body_tab4{
+	background-color: red;
+	width: 400px;
+	height: 300px;
+	border: solid red 1px;
+	position: absolute;
+	left:420px;
+	top: 320px;
+}

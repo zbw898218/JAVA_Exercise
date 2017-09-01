@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.header{
+	
+	/*background-color: #87CEFA;*/
+}
+.img1{	
+	background-color: #87CEFA;
+	width: 160px;
+	height: 80px;
+	position: absolute;
+	left: 0;
+	top: 1px;
+	
+}
+.img2{	
+
+	width: 890px;
+	height: 80px;
+	position: absolute;
+	left: 185px;
+	top: 1px;
+}
+

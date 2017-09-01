@@ -1,0 +1,1 @@
+座位信息{videoHallID=1, seatID=3, columnID=1, rowID=3, isSell=1}
